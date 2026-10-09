@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0 -- /Users/bryantg/Documents/Codex/2026-10-09/ban/work/prototype-venv/bin/python
+rootdir: /Users/bryantg/Documents/Codex/2026-10-09/ban/outputs/ontology_prototype
+collecting ... collected 25 items
+
+test_reasoning.py::test_new_inferred_relationship[ScienceCommerceCombined-hasMajor-ComputerScience] PASSED [  4%]
+test_reasoning.py::test_new_inferred_relationship[BachelorOfPhilosophy-hasMajor-ComputerScience] PASSED [  8%]
+test_reasoning.py::test_new_inferred_relationship[ComputerScience-hasOutcome-ProgrammingSkills] PASSED [ 12%]
+test_reasoning.py::test_new_inferred_relationship[CITS3005-hasPrerequisite-CITS1401] PASSED [ 16%]
+test_reasoning.py::test_new_inferred_relationship[OuterCombined-hasMajor-ComputerScience] PASSED [ 20%]
+test_reasoning.py::test_new_inferred_relationship[ComputerScience-hasUnit-CITS1401] PASSED [ 24%]
+test_reasoning.py::test_no_unintended_relationships PASSED               [ 28%]
+test_reasoning.py::test_degree_validation_before_and_after_reasoning PASSED [ 32%]
+test_validation.py::test_cycles[edges0-True] PASSED                      [ 36%]
+test_validation.py::test_cycles[edges1-False] PASSED                     [ 40%]
+test_validation.py::test_cycles[edges2-False] PASSED                     [ 44%]
+test_validation.py::test_cycles[edges3-False] PASSED                     [ 48%]
+test_validation.py::test_degree_minimum[True] PASSED                     [ 52%]
+test_validation.py::test_degree_minimum[False] PASSED                    [ 56%]
+test_validation.py::test_credit_totals[credits0-1-True] PASSED           [ 60%]
+test_validation.py::test_credit_totals[credits1-1-True] PASSED           [ 64%]
+test_validation.py::test_credit_totals[credits2-1-True] PASSED           [ 68%]
+test_validation.py::test_credit_totals[credits3-1-False] PASSED          [ 72%]
+test_validation.py::test_credit_totals[credits4-2-True] PASSED           [ 76%]
+test_validation.py::test_elective_candidates_are_not_all_required PASSED [ 80%]
+test_validation.py::test_bad_metadata_does_not_silently_pass[missing] PASSED [ 84%]
+test_validation.py::test_bad_metadata_does_not_silently_pass[multiple] PASSED [ 88%]
+test_validation.py::test_bad_metadata_does_not_silently_pass[text] PASSED [ 92%]
+test_validation.py::test_bad_metadata_does_not_silently_pass[negative] PASSED [ 96%]
+test_validation.py::test_bad_metadata_does_not_silently_pass[missing_level] PASSED [100%]
+
+============================== 25 passed in 1.58s ==============================

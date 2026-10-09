@@ -1,0 +1,6 @@
+# Tested with Python 3.9.6. Java must be available for Pellet.
+# 0.51's bundled Jena produced UnsupportedClassVersionError in this environment.
+owlready2==0.49
+pyshacl==0.40.1
+rdflib==7.6.0
+pytest==8.4.2
