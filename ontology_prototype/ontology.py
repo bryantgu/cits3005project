@@ -7,7 +7,7 @@ from owlready2 import (
 BASE = "https://example.org/cits3005-prototype#"
 
 
-def build_ontology():
+def build_ontology(include_examples=True):
     # A World is an isolated store: previous experiments cannot leak into this one.
     world = World()
     onto = world.get_ontology(BASE)
@@ -70,24 +70,25 @@ def build_ontology():
         # Only core-unit outcomes propagate to the major.
         hasOutcome.property_chain = [PropertyChain([hasCoreUnit, hasOutcome])]
 
-        science = StandardDegree("BachelorOfScience")
-        combined = CombinedDegree("ScienceCommerceCombined")
-        philosophy = Degree("BachelorOfPhilosophy")
-        major = Major("ComputerScience")
-        first = Unit("CITS1401")
-        second = Unit("CITS2005")
-        third = Unit("CITS3005")
-        outcome = Outcome("ProgrammingSkills")
+        if include_examples:
+            science = StandardDegree("BachelorOfScience")
+            combined = CombinedDegree("ScienceCommerceCombined")
+            philosophy = Degree("BachelorOfPhilosophy")
+            major = Major("ComputerScience")
+            first = Unit("CITS1401")
+            second = Unit("CITS2005")
+            third = Unit("CITS3005")
+            outcome = Outcome("ProgrammingSkills")
 
-        science.hasMajor.append(major)
-        combined.involvesDegree.append(science)
-        philosophy.inheritsMajorsFrom.append(science)
-        major.hasCoreUnit.append(first)
-        first.hasOutcome.append(outcome)
-        third.hasPrerequisite.append(second)
-        second.hasPrerequisite.append(first)
-        first.level = [1]
-        first.creditPoints = [6]
+            science.hasMajor.append(major)
+            combined.involvesDegree.append(science)
+            philosophy.inheritsMajorsFrom.append(science)
+            major.hasCoreUnit.append(first)
+            first.hasOutcome.append(outcome)
+            third.hasPrerequisite.append(second)
+            second.hasPrerequisite.append(first)
+            first.level = [1]
+            first.creditPoints = [6]
     return world, onto
 
 
