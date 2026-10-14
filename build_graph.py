@@ -284,6 +284,52 @@ def link_approved_prerequisites(created_units):
     return count, skipped
 
 
+def link_degree_inheritance(created_degrees):
+
+    # Combined Degrees and their component Degrees
+    combined_sources = {
+        "CB034": ["BH011", "BP001"],
+        "CB006": ["BH011", "BP002"],
+        "CB010": ["BP019", "BP002"],
+        "CB004": ["BH011", "BP004"]
+    }
+
+    combined_links = 0
+
+    for combined_code, source_codes in combined_sources.items():
+        combined = created_degrees[combined_code]
+
+        for source_code in source_codes:
+            source = created_degrees[source_code]
+
+            if source not in combined.involvesDegree:
+                combined.involvesDegree.append(source)
+                combined_links += 1
+
+    # Bachelor of Philosophy (Honours)
+    philosophy = created_degrees["BH005"]
+
+    philosophy_sources = [
+        "BP001",
+        "BP004",
+        "BP002",
+        "BP019",
+        "BH008",
+        "BH011"
+    ]
+
+    philosophy_links = 0
+
+    for source_code in philosophy_sources:
+        source = created_degrees[source_code]
+
+        if source not in philosophy.inheritsMajorsFrom:
+            philosophy.inheritsMajorsFrom.append(source)
+            philosophy_links += 1
+
+    return combined_links, philosophy_links
+
+
 # ==========================================
 # 12. MAIN PROGRAM
 # ==========================================
@@ -320,7 +366,7 @@ def main():
     if missing_majors or missing_units:
         raise ValueError("Invalid JSON references")
 
-    world, onto = build_ontology()
+    world, onto = build_ontology(include_examples=False)
 
     try:
         # Individuals
@@ -331,6 +377,30 @@ def main():
         # Degree / Major / Unit relationships
         degree_major_links = link_degrees_majors(
             degrees, created_degrees, created_majors
+        )
+        
+        combined_links, philosophy_links = link_degree_inheritance(
+            created_degrees
+            )
+
+        print("\n=== DEGREE INHERITANCE RELATIONSHIPS ===")
+        print("Combined Degree links:", combined_links)
+        print("Philosophy inheritance links:", philosophy_links)
+
+        for code in ["CB034", "CB006", "CB010", "CB004"]:
+            degree = created_degrees[code]
+            print(
+                code,
+                "involves:",
+                [source.name for source in degree.involvesDegree]
+            )
+
+        print(
+            "BH005 inherits from:",
+            [
+                source.name
+                for source in created_degrees["BH005"].inheritsMajorsFrom
+            ]
         )
 
         major_unit_links = link_majors_units(
@@ -411,6 +481,40 @@ def main():
         print(
             "Note: Pellet reasoning has not been run."
         )
+        
+        print("\n=== TEST DATA ISOLATION ===")
+
+        test_names = [
+            "BachelorOfScience",
+            "ScienceCommerceCombined",
+            "BachelorOfPhilosophy",
+            "ComputerScience",
+            "ProgrammingSkills"
+        ]
+
+        for name in test_names:
+            assert onto[name] is None, f"Unexpected test data: {name}"
+
+        print("PASS: No artificial test individuals found")
+        
+        # ==========================================
+        # EXPORT KNOWLEDGE GRAPH
+        # ==========================================
+
+        output_dir = BASE_DIR / "output"
+        output_dir.mkdir(exist_ok=True)
+
+        output_file = output_dir / "knowledge_graph.owl"
+
+        onto.save(
+            file=str(output_file),
+            format="rdfxml"
+        )
+
+        print("\n=== KNOWLEDGE GRAPH EXPORT ===")
+        print("Saved to:", output_file)
+        print("File size:", output_file.stat().st_size, "bytes")
+
 
     finally:
         world.close()
