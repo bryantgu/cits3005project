@@ -1,0 +1,25 @@
+PREFIX ex: <https://example.org/cits3005-prototype#>
+
+SELECT ?degreeType (AVG(?majorCount) AS ?averageMajors)
+WHERE {
+    {
+        SELECT ?degree ?degreeType (COUNT(DISTINCT ?major) AS ?majorCount)
+        WHERE {
+            ?degree a ?degreeType .
+            ?degree ex:hasMajor ?major .
+
+            FILTER(
+                ?degreeType IN (
+                    ex:StandardDegree,
+                    ex:CombinedDegree,
+                    ex:HonoursDegree
+                )
+            )
+
+            FILTER(?degree != ex:BH005)
+        }
+        GROUP BY ?degree ?degreeType
+    }
+}
+GROUP BY ?degreeType
+ORDER BY ?degreeType
