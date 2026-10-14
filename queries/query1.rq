@@ -1,0 +1,15 @@
+PREFIX ex: <https://example.org/cits3005-prototype#>
+
+SELECT DISTINCT ?degree ?unit
+WHERE {
+    ?degree ex:hasMajor ?major .
+    ?major ex:hasCoreUnit ?unit .
+
+    FILTER NOT EXISTS {
+        ?degree ex:hasMajor ?otherMajor .
+
+        FILTER NOT EXISTS {
+            ?otherMajor ex:hasCoreUnit ?unit .
+        }
+    }
+}
