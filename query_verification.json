@@ -490,5 +490,55 @@
       }
     ],
     "ontology_tests_passed": 25
+  },
+  "integration_regression_verification": {
+    "executed_at": "2026-10-15T21:11:54.063320+08:00",
+    "base_commit": "1e127b21eeb071bb1b68208e5e629e67d174a10d",
+    "scope": "Working tree with Query 4 asserted-graph selection and data-directory path fixes. Earlier entries document previous runs.",
+    "checks": [
+      {
+        "arguments": [
+          "run_queries.py",
+          "3"
+        ],
+        "count": 5,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "run_queries.py",
+          "4",
+          "data analysis"
+        ],
+        "count": 5,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "run_queries.py",
+          "4",
+          "programming"
+        ],
+        "count": 6,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "app.py"
+        ],
+        "passed": true,
+        "cases": [
+          "Q4 data analysis: 5",
+          "Q4 programming: 6",
+          "Q4 blank input rejected",
+          "Q3: 5",
+          "SHACL: True"
+        ]
+      }
+    ],
+    "automated_tests": {
+      "command": "python -m pytest -q -p no:cacheprovider test_queries34.py",
+      "passed": 17
+    }
   }
 }

@@ -2,7 +2,7 @@ from pathlib import Path
 import sys
 
 from owlready2 import World
-from rdflib import Literal
+from rdflib import Graph, Literal
 
 
 # ============================================================
@@ -370,7 +370,12 @@ def run_query_file(world, filename, bindings=None):
         encoding="utf-8"
     )
 
-    graph = snapshot(world)
+    # Query 4 searches direct major outcomes, excluding inferred unit outcomes.
+    graph = (
+        Graph().parse(KG_FILE, format="xml")
+        if filename == "query4.rq"
+        else snapshot(world)
+    )
 
     try:
         if bindings:

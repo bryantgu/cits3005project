@@ -35,7 +35,7 @@ def reasoned_graph(with_before=False):
 def load_titles():
     titles = {}
     for filename in ["degrees.json", "majors.json", "units.json"]:
-        records = json.loads((BASE_DIR / filename).read_text(encoding="utf-8"))
+        records = json.loads((BASE_DIR / "data" / filename).read_text(encoding="utf-8"))
         titles.update({code: record["title"] for code, record in records.items()})
     return titles
 
