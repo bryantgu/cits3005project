@@ -319,7 +319,7 @@ If a constraint is violated, the application prints `SHACL conforms: False` foll
 
 ### 2.8 Command-Line Alternative (`run_queries.py`)
 
-`run_queries.py` performs a single operation and exits, which suits scripting and testing. Its output messages are in Chinese.
+`run_queries.py` performs a single operation and exits, which suits scripting and testing.
 
 | Command | Action |
 |---|---|
