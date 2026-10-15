@@ -1,4 +1,3 @@
-
 import json
 import csv
 import sys
@@ -17,7 +16,7 @@ from ontology import build_ontology
 # ==========================================
 
 def load_json(filename):
-    with open(BASE_DIR / filename, "r", encoding="utf-8") as f:
+    with open(BASE_DIR / "data" / filename, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -237,7 +236,7 @@ def find_albany_majors(majors, units):
 # ==========================================
 
 def link_approved_prerequisites(created_units):
-    filename = BASE_DIR / "prerequisite_review.csv"
+    filename = BASE_DIR / "data" / "prerequisite_review.csv"
 
     count = 0
     skipped = 0
