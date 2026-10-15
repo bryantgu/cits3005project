@@ -1,0 +1,15 @@
+PREFIX ex: <https://example.org/cits3005-prototype#>
+
+SELECT DISTINCT ?major
+WHERE {
+    ?major a ex:Major .
+    ?major ex:hasCoreUnit ?anyCore .
+
+    FILTER NOT EXISTS {
+        ?major ex:hasCoreUnit ?unit .
+        FILTER NOT EXISTS {
+            ?unit ex:availableAt ex:Location_Albany .
+        }
+    }
+}
+ORDER BY ?major

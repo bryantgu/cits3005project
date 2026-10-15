@@ -1,0 +1,12 @@
+PREFIX ex: <https://example.org/cits3005-prototype#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?major
+WHERE {
+    ?major a ex:Major .
+    ?major ex:hasOutcome ?outcome .
+    ?outcome rdfs:label ?text .
+
+    FILTER(CONTAINS(LCASE(STR(?text)), LCASE(STR(?keyword))))
+}
+ORDER BY ?major

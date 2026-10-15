@@ -1,0 +1,494 @@
+{
+  "executed_at": "2026-10-14T22:47:43.773243+08:00",
+  "kg_sha256": "63f274c8fbf724cfccb973921ff3991713ec43b7b345d2965a40558ed71f3936",
+  "environment": {
+    "python": "3.9.6",
+    "java": "Temurin 21.0.6",
+    "owlready2": "0.49",
+    "rdflib": "7.6.0",
+    "pyshacl": "0.40.1"
+  },
+  "before": {
+    "triples": 24854,
+    "shacl_conforms": false,
+    "violations": [
+      {
+        "focus": "https://example.org/cits3005-prototype#BH005",
+        "message": "A degree needs at least one major in this graph."
+      },
+      {
+        "focus": "https://example.org/cits3005-prototype#CB006",
+        "message": "A degree needs at least one major in this graph."
+      },
+      {
+        "focus": "https://example.org/cits3005-prototype#CB004",
+        "message": "A degree needs at least one major in this graph."
+      },
+      {
+        "focus": "https://example.org/cits3005-prototype#CB034",
+        "message": "A degree needs at least one major in this graph."
+      },
+      {
+        "focus": "https://example.org/cits3005-prototype#CB010",
+        "message": "A degree needs at least one major in this graph."
+      }
+    ]
+  },
+  "after": {
+    "triples": 33736,
+    "shacl_conforms": true,
+    "new_triples": 8882
+  },
+  "queries": {
+    "1": {
+      "graph": "reasoned",
+      "rows": [
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#AGRI1001"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#BIOL1131"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#SCIE1104"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#SCOM1101"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#AGRI2201"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#ENVT2236"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#GENE2250"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#GEOG2201"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#PLNT2201"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#SCIE2205"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#AGRI3003"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#ANIM3306"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#ECON3300"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#ENVT3060"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#GEOG3301"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BP019",
+          "https://example.org/cits3005-prototype#SCIE3314"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS1003"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS1401"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS1402"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#PHIL1001"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS2002"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS2005"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS2200"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS2211"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3001"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3002"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3005"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3011"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3200"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3403"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3003"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3007"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS3009"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS4010"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH008",
+          "https://example.org/cits3005-prototype#CITS4011"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG1000"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG1010"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#MATH1011"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#MATH1012"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG2000"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG3000"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG4411"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG4412"
+        ],
+        [
+          "https://example.org/cits3005-prototype#BH011",
+          "https://example.org/cits3005-prototype#GENG5010"
+        ]
+      ],
+      "count": 44
+    },
+    "2": {
+      "graph": "reasoned",
+      "rows": [
+        [
+          "https://example.org/cits3005-prototype#CombinedDegree",
+          "30"
+        ],
+        [
+          "https://example.org/cits3005-prototype#HonoursDegree",
+          "6.5"
+        ],
+        [
+          "https://example.org/cits3005-prototype#StandardDegree",
+          "21.25"
+        ]
+      ],
+      "count": 3
+    },
+    "3": {
+      "graph": "asserted",
+      "rows": [
+        [
+          "https://example.org/cits3005-prototype#MJD-ANTHR"
+        ],
+        [
+          "https://example.org/cits3005-prototype#MJD-BOTNY"
+        ],
+        [
+          "https://example.org/cits3005-prototype#MJD-CONBI"
+        ],
+        [
+          "https://example.org/cits3005-prototype#MJD-ENVSC"
+        ],
+        [
+          "https://example.org/cits3005-prototype#MJD-MBIOL"
+        ]
+      ],
+      "count": 5
+    },
+    "4": {
+      "graph": "asserted",
+      "scope": "Direct major outcomes only; no unit-outcome inheritance.",
+      "tests": [
+        {
+          "input": "data analysis",
+          "count": 5,
+          "rows": [
+            "https://example.org/cits3005-prototype#MJD-AGBUS",
+            "https://example.org/cits3005-prototype#MJD-AGTDM",
+            "https://example.org/cits3005-prototype#MJD-BUSAN",
+            "https://example.org/cits3005-prototype#MJD-GENET",
+            "https://example.org/cits3005-prototype#MJD-PHYSC"
+          ],
+          "matches_json": true
+        },
+        {
+          "input": "programming",
+          "count": 6,
+          "rows": [
+            "https://example.org/cits3005-prototype#MJD-AGTDM",
+            "https://example.org/cits3005-prototype#MJD-AGTEC",
+            "https://example.org/cits3005-prototype#MJD-EAUTO",
+            "https://example.org/cits3005-prototype#MJD-ESOFT",
+            "https://example.org/cits3005-prototype#MJD-MARCP",
+            "https://example.org/cits3005-prototype#MJD-MEMSD"
+          ],
+          "matches_json": true
+        },
+        {
+          "input": "DATA ANALYSIS",
+          "count": 5,
+          "rows": [
+            "https://example.org/cits3005-prototype#MJD-AGBUS",
+            "https://example.org/cits3005-prototype#MJD-AGTDM",
+            "https://example.org/cits3005-prototype#MJD-BUSAN",
+            "https://example.org/cits3005-prototype#MJD-GENET",
+            "https://example.org/cits3005-prototype#MJD-PHYSC"
+          ],
+          "matches_json": true
+        },
+        {
+          "input": "  PrOgRaMmInG  ",
+          "count": 6,
+          "rows": [
+            "https://example.org/cits3005-prototype#MJD-AGTDM",
+            "https://example.org/cits3005-prototype#MJD-AGTEC",
+            "https://example.org/cits3005-prototype#MJD-EAUTO",
+            "https://example.org/cits3005-prototype#MJD-ESOFT",
+            "https://example.org/cits3005-prototype#MJD-MARCP",
+            "https://example.org/cits3005-prototype#MJD-MEMSD"
+          ],
+          "matches_json": true
+        },
+        {
+          "input": "zzzz_no_match_9f32",
+          "count": 0,
+          "rows": [],
+          "matches_json": true
+        },
+        {
+          "input": "",
+          "count": 0,
+          "rows": [],
+          "matches_json": true
+        },
+        {
+          "input": "   ",
+          "count": 0,
+          "rows": [],
+          "matches_json": true
+        }
+      ]
+    }
+  },
+  "query34_tests": {
+    "command": "python -m pytest -q -p no:cacheprovider test_queries34.py",
+    "passed": 10
+  },
+  "application_tests": {
+    "passed": 19,
+    "cases": [
+      {
+        "arguments": [
+          "1"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "2"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "3"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "4",
+          "programming"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "4"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "4",
+          " "
+        ],
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "4",
+          "zzzz_no_match_9f32"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "browse",
+          "MJD-ANTHR"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "browse",
+          "CITS1401"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "browse",
+          "NOT-A-CODE"
+        ],
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "validate",
+          "--asserted"
+        ],
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "validate"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "inferred"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "3",
+          "unexpected"
+        ],
+        "exit": 2,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "3",
+          "--asserted"
+        ],
+        "exit": 2,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "browse"
+        ],
+        "exit": 2,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "inferred",
+          "CB034"
+        ],
+        "exit": 0,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "inferred",
+          "NOT-A-CODE"
+        ],
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "arguments": [
+          "4"
+        ],
+        "stdin": "EOF",
+        "exit": 1,
+        "passed": true
+      }
+    ],
+    "ontology_tests_passed": 25
+  }
+}
