@@ -50,7 +50,7 @@ def browse(graph, code, titles):
     subject = EX[code]
     pairs = list(graph.predicate_objects(subject))
     if not pairs:
-        print(f"没有找到：{code}")
+        print(f"Not found: {code}")
         return 1
     print(display_term(subject, titles))
     for predicate, obj in sorted(pairs, key=lambda pair: tuple(map(str, pair))):
@@ -67,7 +67,7 @@ def show_inferred(before, after, titles, code=None):
         ) and (code is None or EX[code] in (triple[0], triple[2]))),
         key=lambda triple: tuple(map(str, triple)),
     )
-    print(f"新增类型及关系（{len(rows)}）：")
+    print(f"Inferred types and relationships ({len(rows)}):")
     for subject, predicate, obj in rows:
         labels = sorted(str(label) for label in after.objects(obj, RDFS.label))
         value = " / ".join(labels) if labels else display_term(obj, titles)
@@ -108,9 +108,9 @@ def main():
         parser.error("browse requires a resource code, e.g. MJD-ANTHR.")
 
     if args.query == "4":
-        keyword = args.keyword if args.keyword is not None else input("请输入关键词：")
+        keyword = args.keyword if args.keyword is not None else input("Enter a keyword: ")
         if not keyword.strip():
-            print("关键词不能为空。")
+            print("Keyword cannot be empty.")
             return 1
 
     g = load_graph()
@@ -123,7 +123,7 @@ def main():
     if args.query == "inferred":
         code = args.keyword.strip() if args.keyword is not None else None
         if code is not None and not list(g.predicate_objects(EX[code])):
-            print(f"没有找到：{code}")
+            print(f"Not found: {code}")
             return 1
         before, after = reasoned_graph(with_before=True)
         show_inferred(before, after, titles, code)
@@ -135,9 +135,9 @@ def main():
     if args.query in ["1", "2"]:
         rows = list(g.query(query))
         if not rows:
-            print("没有匹配的结果。")
+            print("No matching results.")
             return 0
-        print(f"查询结果（{len(rows)}）：")
+        print(f"Query results ({len(rows)}):")
         for row in sorted(rows, key=lambda row: tuple(map(str, row))):
             print("- " + " → ".join(display_term(term, titles) for term in row))
         return 0
@@ -149,10 +149,10 @@ def main():
     )
 
     if not majors:
-        print("没有匹配的 Major。")
+        print("No matching majors.")
         return 0
 
-    print(f"匹配的 Majors（{len(majors)}）：")
+    print(f"Matching majors ({len(majors)}):")
     for iri in majors:
         print(f"- {display_term(iri, titles)}")
     return 0
@@ -162,5 +162,5 @@ if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except (FileNotFoundError, EOFError) as error:
-        print(f"无法运行：{error}", file=sys.stderr)
+        print(f"Unable to run: {error}", file=sys.stderr)
         raise SystemExit(1)
