@@ -2,6 +2,7 @@ from pathlib import Path
 import sys
 
 from owlready2 import World
+from rdflib import Literal
 
 
 # ============================================================
@@ -358,7 +359,7 @@ def search_knowledge_graph(onto):
 # SPARQL queries
 # ============================================================
 
-def run_query_file(world, filename):
+def run_query_file(world, filename, bindings=None):
     query_file = QUERY_DIR / filename
 
     if not query_file.exists():
@@ -372,7 +373,17 @@ def run_query_file(world, filename):
     graph = snapshot(world)
 
     try:
-        return list(graph.query(query_text))
+        if bindings:
+            return list(
+                graph.query(
+                    query_text,
+                    initBindings=bindings
+                )
+            )
+
+        return list(
+            graph.query(query_text)
+        )
 
     except Exception as exc:
         print("\nSPARQL query failed:")
@@ -442,6 +453,74 @@ def run_query2(world):
     print(
         f"\nDegree types returned: {len(rows)}"
     )
+    
+def run_query3(world):
+    print(
+        "\n=== QUERY 3: "
+        "MAJORS COMPLETABLE IN ALBANY ==="
+    )
+
+    rows = run_query_file(
+        world,
+        "query3.rq"
+    )
+
+    if not rows:
+        print("No results.")
+        return
+
+    for row in rows:
+        major = row[0]
+        major_name = str(major).split("#")[-1]
+
+        print(major_name)
+
+    print(
+        f"\nTotal Albany majors: {len(rows)}"
+    )
+    
+def run_query4(world):
+    print(
+        "\n=== QUERY 4: "
+        "SEARCH MAJORS BY OUTCOME ==="
+    )
+
+    keyword = input(
+        "\nEnter outcome search text "
+        "(e.g. data analysis): "
+    ).strip()
+
+    if not keyword:
+        print("Search term cannot be empty.")
+        return
+
+    rows = run_query_file(
+        world,
+        "query4.rq",
+        bindings={
+            "keyword": Literal(keyword)
+        }
+    )
+
+    if not rows:
+        print(
+            f'No majors found for "{keyword}".'
+        )
+        return
+
+    print(
+        f'\nMajors matching "{keyword}":'
+    )
+
+    for row in rows:
+        major = row[0]
+        major_name = str(major).split("#")[-1]
+
+        print(major_name)
+
+    print(
+        f"\nTotal matching majors: {len(rows)}"
+    )
 
 
 def query_menu(world):
@@ -455,6 +534,12 @@ def query_menu(world):
             "2. Average major options "
             "by degree type"
         )
+        print(
+            "3. Majors completable in Albany"
+        )
+        print(
+            "4. Search majors by outcome"
+        )
         print("0. Back")
 
         choice = input(
@@ -467,6 +552,12 @@ def query_menu(world):
         elif choice == "2":
             run_query2(world)
 
+        elif choice == "3":
+            run_query3(world)
+
+        elif choice == "4":
+            run_query4(world)
+
         elif choice == "0":
             return
 
@@ -475,8 +566,7 @@ def query_menu(world):
                 "Invalid option. "
                 "Please try again."
             )
-
-
+            
 # ============================================================
 # Reasoning
 # ============================================================
